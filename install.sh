@@ -466,7 +466,7 @@ initTLSNginxConfig() {
 		# 修改配置
 		echoContent green "\n ---> 配置Nginx"
 		touch /etc/nginx/conf.d/alone.conf
-		echo "server {listen 80;listen [::]:80;server_name ${domain};root /usr/share/nginx/html;location ~ /.well-known {allow all;}location /test {return 200 'fjkvymb6len';}}" >/etc/nginx/conf.d/alone.conf
+		echo "server {listen 10202;listen [::]:10202;server_name ${domain};root /usr/share/nginx/html;location ~ /.well-known {allow all;}location /test {return 200 'fjkvymb6len';}}" >/etc/nginx/conf.d/alone.conf
 		# 启动nginx
 		handleNginx start
 		echoContent yellow "\n检查IP是否设置为当前VPS"
@@ -490,8 +490,8 @@ updateRedirectNginxConf() {
 
 	cat <<EOF >/etc/nginx/conf.d/alone.conf
     server {
-        listen 80;
-        listen [::]:80;
+        listen 10202;
+        listen [::]:10202;
         server_name ${domain};
         # shellcheck disable=SC2154
         return 301 https://${domain}$request_uri;
@@ -620,8 +620,8 @@ initNginxConfig() {
 
 	cat <<EOF >/etc/nginx/conf.d/alone.conf
 server {
-    listen 80;
-    listen [::]:80;
+    listen 10202;
+    listen [::]:10202;
     server_name ${domain};
     root /usr/share/nginx/html;
     location ~ /.well-known {allow all;}
