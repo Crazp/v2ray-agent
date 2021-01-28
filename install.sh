@@ -1560,7 +1560,7 @@ EOF
 {
   "inbounds":[
     {
-      "port": 443,
+      "port": 10201,
       "protocol": "vless",
       "tag":"VLESSTCP",
       "settings": {
@@ -1600,7 +1600,7 @@ EOF
 {
 "inbounds":[
 {
-  "port": 443,
+  "port": 10201,
   "protocol": "vless",
   "tag":"VLESSTCP",
   "settings": {
@@ -1867,7 +1867,7 @@ EOF
 {
 "inbounds":[
 {
-  "port": 443,
+  "port": 10201,
   "protocol": "vless",
   "tag":"VLESSTCP",
   "settings": {
@@ -1978,7 +1978,7 @@ defaultBase64Code() {
 		port=$(echo "${hostPort}" | awk -F "[:]" '{print $2}')
 	else
 		host=${hostPort}
-		port=443
+		port=10201
 	fi
 
 	local path=$5
